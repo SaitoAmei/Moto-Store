@@ -21,28 +21,35 @@
             p {
                 padding-left: 60px;
             }
+            * {
+                font-size:large;
+                font-weight:500;
+                font-family: 'Smooch Sans', sans-serif;
+            }
+
+
         </style>
     </form>
 
     <table>
 
         <tr>
-            <th><p>Id</p></th>
-            <th><p>Model</p></th>
-            <th><p>Producer</p></th>
-            <th><p>Max speed</p></th>
-            <th><p>Speed</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:aquamarine">Id</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:gold">Model</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:chartreuse">Producer</p></th>
+            <th><p style="font-size: larger; font-weight: 600; background-color: #afa3f5">Max speed</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:tomato">Price</p></th>
 
         </tr>
         @foreach (var b in ViewBag.Motos)
         {
             <tr>
-                <td><p>@b.Id</p></td>
-                <td><p>@b.Model</p></td>
-                <td><p>@b.Producer</p></td>
-                <td><p>@b.MaxSpeed</p></td>
-                <td><p>@b.Price</p></td>
-                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+                <td><p style="background-color:aquamarine">@b.Id</p></td>
+                <td><p style="background-color:gold">@b.Model</p></td>
+                <td><p style="background-color:chartreuse">@b.Producer</p></td>
+                <td><p style="background-color: #afa3f5">@b.MaxSpeed</p></td>
+                <td><p style="background-color:tomato">@b.Price</p></td>
+                <td><p style="font-size:larger; font-weight:600;"><a href="/Home/Buy/@b.Id">Купить</a></p></td>
             </tr>
         }
     </table>
