@@ -17,15 +17,16 @@ namespace WebApplication2.Models
             if (!reader.HasRows){ DbCreating.Insert_Defolts(connection);}
                 try
                 {
-                    while (reader.Read())
+                while (reader.Read())
+                {
+                    Moto moto = new Moto()
                     {
-                        Moto moto = new Moto();
-                            moto.Id = Convert.ToInt32(reader.GetValue(0));
-                            moto.Model = Convert.ToString(reader.GetValue(1));
-                            moto.Producer = Convert.ToString(reader.GetValue(2));
-                            moto.MaxSpeed = Convert.ToString(reader.GetValue(3));
-                            moto.Price = Convert.ToInt32(reader.GetValue(4));
-                        
+                        Id = Convert.ToInt32(reader.GetValue(0)),
+                        Model = Convert.ToString(reader.GetValue(1)),
+                        Producer = Convert.ToString(reader.GetValue(2)),
+                        MaxSpeed = Convert.ToString(reader.GetValue(3)),
+                        Price = Convert.ToInt32(reader.GetValue(4))
+                };
                         Data.Add(moto);
                     
                     }

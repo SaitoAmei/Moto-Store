@@ -34,14 +34,15 @@ namespace WebApplication2.Controllers
             Purchase purchase = new Purchase()
             {
                 Person = collection["Person"],
-                Adress = collection["Adress"],
+                Adress = collection["Address"],
                 Date = System.DateTime.Now,
                 MotoId = id
             
             };
-            
 
-            return "Спасибо," +purchase.Person+purchase.Date+purchase.MotoId+ ", за покупку!";
+            DbCreating.AddPurcahse(purchase, DbCreating.Connection());
+
+            return "Спасибо," +purchase.Person + purchase.Date + purchase.MotoId+ ", за покупку!";
         }
     }
 }

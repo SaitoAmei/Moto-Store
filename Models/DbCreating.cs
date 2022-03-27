@@ -45,6 +45,18 @@ namespace WebApplication2.Models
 
         }
 
+        public static void AddPurcahse(Purchase purchase, SqlConnection connection) 
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO Purchase (person, adress, date, motoId) VALUES (@person, @adress, @date, @motoId)",connection);
+            command.Parameters.AddWithValue("person", purchase.Person);
+            command.Parameters.AddWithValue("adress", purchase.Adress);
+            command.Parameters.AddWithValue("date", purchase.Date.ToString());
+            command.Parameters.AddWithValue("motoId", purchase.MotoId);
+
+            command.ExecuteNonQuery();
+
+                                      
+        }
         
         
         
