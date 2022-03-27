@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th><p>Id</p></th>
+        <th><p>Model</p></th>
+        <th><p>Producer</p></th>
+        <th>Max speed</th>
+        <th>Price</th>
+        
+    </tr>
+    @foreach (var b in ViewBag.Motos)
+    {   
+        <tr>
+            <td><p>@b.Id</p></td>
+            <td><p>@b.Model</p></td>
+            <td><p>@b.Producer</p></td>
+            <td><p>@b.MaxSpeed</p></td>
+            <td><p>@b.Price</p></td>
+            <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+        </tr>
+    }
+</table>
