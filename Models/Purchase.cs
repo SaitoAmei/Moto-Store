@@ -7,7 +7,6 @@ namespace WebApplication2.Models
 {
     public class Purchase
     {
-        public int Id { get; set; }
 
         public string Person { get; set; }
 

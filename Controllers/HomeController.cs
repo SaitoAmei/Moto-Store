@@ -20,30 +20,28 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
         [HttpGet]
-        public ActionResult Buy()
+        public ActionResult Buy(object id)
         {
-            
+
+            ViewBag.MotoId = id;
             return View();
         }
         [HttpPost]
-        public string Buy(Purchase purchase)
+        public string Buy(FormCollection collection, int id)
         {
-            return "Спасибо," + ", за покупку!";
+            Purchase purchase = new Purchase()
+            {
+                Person = collection["Person"],
+                Adress = collection["Adress"],
+                Date = System.DateTime.Now,
+                MotoId = id
+            
+            };
+            
+
+            return "Спасибо," +purchase.Person+purchase.Date+purchase.MotoId+ ", за покупку!";
         }
     }
 }
