@@ -53,6 +53,7 @@ namespace WebApplication2.Models
             command.Parameters.AddWithValue("date", purchase.Date.ToString());
             command.Parameters.AddWithValue("motoId", purchase.MotoId);
 
+
             command.ExecuteNonQuery();
 
                                       
