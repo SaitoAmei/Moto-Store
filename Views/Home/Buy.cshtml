@@ -1,1 +1,46 @@
-﻿
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Purchase</title>
+</head>
+
+<body>
+    <div>
+
+
+    </div>
+    <div>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.MotoId" name="MotoId" />
+            <table>
+                <tr>
+                    <td><p>Input your name :</p></td>
+                    <td><input type="text" name="Person" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Input your adress :</p></td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Submit" /> </td><td></td></tr>
+            </table>
+
+        </form>
+    </div>
+
+
+
+
+
+</body>
+
+
+
+</html>
