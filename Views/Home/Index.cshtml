@@ -8,13 +8,20 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Purchase</title>
+    <title>Home</title>
+ 
 </head>
+
 <body>
     <h2>Index</h2>
     <form method="post">
         <input type="text" name="Query" />
         <button type="submit">Search</button>
+        <style>
+            p {
+                padding-left: 60px;
+            }
+        </style>
     </form>
 
     <table>
@@ -23,8 +30,8 @@
             <th><p>Id</p></th>
             <th><p>Model</p></th>
             <th><p>Producer</p></th>
-            <th>Max speed</th>
-            <th>Price</th>
+            <th><p>Max speed</p></th>
+            <th><p>Speed</p></th>
 
         </tr>
         @foreach (var b in ViewBag.Motos)
@@ -39,7 +46,7 @@
             </tr>
         }
     </table>
-
+ 
 </body>
 
 
