@@ -8,7 +8,7 @@ namespace WebApplication2.Models
 {
     public class Query
     {
-        public List<Moto> Get_Data(SqlConnection connection) 
+        public static List<Moto> Get_Data(SqlConnection connection) 
         {
 
             List<Moto> Data = new List<Moto>();
@@ -46,5 +46,14 @@ namespace WebApplication2.Models
 
             return Data;
          }
+
+
+        public static List<Moto> DataSearch(string query) 
+        {
+            var Data = Get_Data(DbCreating.Connection());
+
+            return Data.Where(moto => moto.Model.Contains(query) || moto.Producer.Contains(query)).ToList();
+        }
+
     }
 }
