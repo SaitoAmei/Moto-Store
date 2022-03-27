@@ -39,7 +39,7 @@ namespace WebApplication2.Models
         public static void Creating_PurchaseDb(SqlConnection connection) 
         {
             // FOREIGN KEY (motoId) REFERENCES dbo.Motos(id))
-            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Purchase]', N'U') IS NULL BEGIN CREATE TABLE Purchase (id int IDENTITY(1,1) PRIMARY KEY , person nvarchar(50) NOT NULL, adress nvarchar(50) NOT NULL, date nvarchar(50) NOT NULL, motoId int NOT NULL) END;" +
+            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Purchase]', N'U') IS NULL BEGIN CREATE TABLE Purchase (id int IDENTITY(1,1) PRIMARY KEY , person nvarchar(50) NOT NULL, address nvarchar(50) NOT NULL, date nvarchar(50) NOT NULL, motoId int NOT NULL) END;" +
                 "", connection);
             command.ExecuteNonQuery();
 
@@ -47,9 +47,9 @@ namespace WebApplication2.Models
 
         public static void AddPurcahse(Purchase purchase, SqlConnection connection) 
         {
-            SqlCommand command = new SqlCommand($"INSERT INTO Purchase (person, adress, date, motoId) VALUES (@person, @adress, @date, @motoId)",connection);
+            SqlCommand command = new SqlCommand($"INSERT INTO Purchase (person, address, date, motoId) VALUES (@person, @address, @date, @motoId)",connection);
             command.Parameters.AddWithValue("person", purchase.Person);
-            command.Parameters.AddWithValue("adress", purchase.Adress);
+            command.Parameters.AddWithValue("address", purchase.Adress);
             command.Parameters.AddWithValue("date", purchase.Date.ToString());
             command.Parameters.AddWithValue("motoId", purchase.MotoId);
 
