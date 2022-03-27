@@ -13,16 +13,22 @@ namespace WebApplication2.Controllers
             SqlConnection connection = DbCreating.Connection();
             DbCreating.Creating_Db(connection);
             DbCreating.Insert_Defolts(connection);
-            Query query = new Query();
-            var data = query.Get_Data(connection);
+            var data =  Query.Get_Data(connection);
             ViewBag.Motos = data;
             DbCreating.Creating_PurchaseDb(connection);
             return View();
         }
 
 
+        [HttpPost]
+        public ActionResult Index(FormCollection collection)
+        {
+            ViewBag.Motos = Query.DataSearch(collection["Query"]);
+            return View();
+        }
+
         [HttpGet]
-        public ActionResult Buy(object id)
+        public ActionResult Buy(int id)
         {
 
             ViewBag.MotoId = id;
