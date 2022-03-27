@@ -37,6 +37,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public string Buy(FormCollection collection, int id)
         {
+            if (collection["Person"] =="" || collection["Address"] == "") { return "Wrong value for field 'Person' or 'Address'"; }
             Purchase purchase = new Purchase()
             {
                 Person = collection["Person"],
@@ -48,7 +49,7 @@ namespace WebApplication2.Controllers
 
             DbCreating.AddPurcahse(purchase, DbCreating.Connection());
 
-            return "Спасибо," +purchase.Person + purchase.Date + purchase.MotoId+ ", за покупку!";
+            return $"{purchase.Person.ToUpper()} thanks for purchasing !)";
         }
     }
 }

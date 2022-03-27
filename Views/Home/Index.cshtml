@@ -3,31 +3,58 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<form method="post">
-    <input type="text" name="Query"/>
-    <button type="submit">Search</button>
-</form>
+<!DOCTYPE html>
+<html>
 
-<table>
-    
-    <tr>
-        <th><p>Id</p></th>
-        <th><p>Model</p></th>
-        <th><p>Producer</p></th>
-        <th>Max speed</th>
-        <th>Price</th>
-        
-    </tr>
-    @foreach (var b in ViewBag.Motos)
-    {   
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+ 
+</head>
+
+<body>
+    <h2>Motos</h2>
+    <form method="post">
+        <input type="text" name="Query" />
+        <button type="submit">Search</button>
+        <style>
+            p {
+                padding-left: 60px;
+            }
+            * {
+                font-size: large;
+                font-family: 'Times New Roman';
+            }
+
+
+        </style>
+    </form>
+
+    <table>
+
         <tr>
-            <td><p>@b.Id</p></td>
-            <td><p>@b.Model</p></td>
-            <td><p>@b.Producer</p></td>
-            <td><p>@b.MaxSpeed</p></td>
-            <td><p>@b.Price</p></td>
-            <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+            <th><p style="font-size:larger; font-weight:600; background-color:aquamarine">Id</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:gold">Model</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:chartreuse">Producer</p></th>
+            <th><p style="font-size: larger; font-weight: 600; background-color: #afa3f5">Max speed</p></th>
+            <th><p style="font-size:larger; font-weight:600; background-color:tomato">Price</p></th>
+
         </tr>
-    }
-</table>
+        @foreach (var b in ViewBag.Motos)
+        {
+            <tr>
+                <td><p style="background-color:aquamarine">@b.Id</p></td>
+                <td><p style="background-color:gold">@b.Model</p></td>
+                <td><p style="background-color:chartreuse">@b.Producer</p></td>
+                <td><p style="background-color: #afa3f5">@b.MaxSpeed</p></td>
+                <td><p style="background-color:tomato">@b.Price</p></td>
+                <td><p style="font-size:larger; font-weight:600;"><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+            </tr>
+        }
+    </table>
+ 
+</body>
+
+
+
+</html>

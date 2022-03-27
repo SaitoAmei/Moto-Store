@@ -8,6 +8,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Purchase</title>
+    <style>
+
+        p {
+            font-size: larger;
+            font-weight: 600;
+            font-family: 'Times New Roman';
+        }
+
+    </style>
 </head>
 
 <body>
@@ -16,7 +25,8 @@
 
     </div>
     <div>
-        <form method="post">
+        <form method="post" >
+            <p>Purchasing form :</p>
             <input type="hidden" value="@ViewBag.MotoId" name="MotoId" />
             <table>
                 <tr>
@@ -24,12 +34,12 @@
                     <td><input type="text" name="Person" /> </td>
                 </tr>
                 <tr>
-                    <td><p>Input your adress :</p></td>
+                    <td><p>Input your address :</p></td>
                     <td>
                         <input type="text" name="Address" />
                     </td>
                 </tr>
-                <tr><td><input type="submit" name="Search" /> </td><td></td></tr>
+                <tr><td><button type="submit">Submit</button> </td><td></td></tr>
             </table>
 
         </form>
