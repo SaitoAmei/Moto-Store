@@ -20,7 +20,9 @@ namespace WebApplication2.Models
         
         public static void Creating_Db(SqlConnection connection) 
         {
-            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Motos]', N'U') IS NULL BEGIN CREATE TABLE Motos (id int IDENTITY(1,1) PRIMARY KEY, model nvarchar(50) NOT NULL, producer nvarchar(50) NOT NULL, max_speed nvarchar(50) NOT NULL, price int NOT NULL) END;", connection);
+            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Motos]', N'U') IS NULL BEGIN CREATE TABLE Motos (id int IDENTITY(1,1) PRIMARY KEY, model nvarchar(50) NOT NULL, " +
+                "producer nvarchar(50) NOT NULL, max_speed nvarchar(50) NOT NULL," +
+                " price int NOT NULL) END;", connection);
             command.ExecuteNonQuery();
         }
 
@@ -39,7 +41,10 @@ namespace WebApplication2.Models
         public static void Creating_PurchaseDb(SqlConnection connection) 
         {
             // FOREIGN KEY (motoId) REFERENCES dbo.Motos(id))
-            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Purchase]', N'U') IS NULL BEGIN CREATE TABLE Purchase (id int IDENTITY(1,1) PRIMARY KEY , person nvarchar(50) NOT NULL, address nvarchar(50) NOT NULL, date nvarchar(50) NOT NULL, motoId int NOT NULL) END;" +
+            SqlCommand command = new SqlCommand("IF OBJECT_ID(N'[dbo].[Purchase]', N'U') IS NULL BEGIN " +
+                "CREATE TABLE Purchase (id int IDENTITY(1,1) PRIMARY KEY , " +
+                "person nvarchar(50) NOT NULL, address nvarchar(50) NOT NULL," +
+                " date nvarchar(50) NOT NULL, motoId int FOREIGN KEY (motoId) REFERENCES dbo.Motos(id)) END;" +
                 "", connection);
             command.ExecuteNonQuery();
 

@@ -14,7 +14,9 @@ namespace WebApplication2.Models
             List<Moto> Data = new List<Moto>();
             SqlCommand command = new SqlCommand("Select * FROM Motos", connection);
             SqlDataReader reader = command.ExecuteReader();
-            if (!reader.HasRows){ DbCreating.Insert_Defolts(connection);}
+            //if (!reader.HasRows){ DbCreating.Insert_Defolts(connection);}
+            //reader.Close();
+            //reader = command.ExecuteReader();
                 try
                 {
                 while (reader.Read())
